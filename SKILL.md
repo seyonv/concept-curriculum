@@ -30,7 +30,7 @@ A curriculum is a set of concept-explainer cards that reads as one course. It st
    - what the field calls things
 
    Share the card list in one line and keep going. If the user asked to review it, or their instructions require plan review (for example a CLAUDE.md review rule), stop for that review instead.
-3. **Pick the output folder.** Use the path the user names. Otherwise use `./explainers/<topic-slug>/`, or a sibling folder if the current directory is already another topic's set.
+3. **Pick the output folder.** Use the path the user names. If the user's instructions name an explainers hub (a git repo with a `publish.sh`), use `<hub>/<topic-slug>/`. Otherwise use `./explainers/<topic-slug>/`, or a sibling folder if the current directory is already another topic's set.
 
    **Write `_facts.md`** in the output folder from `facts-template.md`. It holds the reader's setup, one running example, every shared number with its source and date, the term names, the colour meanings and the card list.
 4. **Measure before citing, on the reader's own setup.** Use the reader's own tools (for example `psql`/`pgbench` for a database or a local model's API) against throwaway data, never their real data. Record every result in `_facts.md` with its command and date. Do all measuring yourself, before the writers start, because parallel runs would skew each other's numbers. Examples from an LLM topic:
@@ -58,9 +58,10 @@ A curriculum is a set of concept-explainer cards that reads as one course. It st
    See `patterns.md` for all of these.
 7. **Build the index from `index-gallery.html`.** Fill in `GROUPS`, the title and the subtitle. It gives live previews, an on-page reader with ← → paging, and deep links such as `#card-name`. The index is the only file allowed a `<script>`.
 8. **Run the verification gate** until it passes: `node ~/.claude/skills/concept-curriculum/verify.mjs <dir> --shots <scratch>/shots`. It needs Node 22+ and a local Chrome. Then look at the light and dark screenshots of the overview cards and the index.
-9. **Report.** List the files, relay every illustrative or uncertain item the writers flagged, and offer to open the index.
+9. **Publish, if there's a hub.** When the set is in an explainers hub, run `<hub>/publish.sh <topic-slug>` once the gate passes. It rebuilds the hub page, commits and pushes.
+10. **Report.** List the files and the live link if you published. Relay every illustrative or uncertain item the writers flagged, and offer to open the index.
 
-**Extending an existing set:** read its cards first. If it has no `_facts.md`, build one from the existing cards before writing anything. Then run steps 2–9 for the new cards and update the overview cards and the index.
+**Extending an existing set:** read its cards first. If it has no `_facts.md`, build one from the existing cards before writing anything. Then run steps 2–10 for the new cards and update the overview cards and the index.
 
 ## Defaults for every card (from `patterns.md`)
 
