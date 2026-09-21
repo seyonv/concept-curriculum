@@ -8,6 +8,8 @@ with overview cards that tie it all together, and open as a gallery you can page
 It builds on [concept-explainer](https://github.com/seyonv/concept-explainer), which makes one
 card. This skill handles everything a *set* needs that a single card doesn't.
 
+**[Browse the live example →](https://seyonv.github.io/concept-curriculum/examples/llm-latency/)** 20 cards on LLM speed and reliability, generated with this skill.
+
 ![The generated index: a gallery of live card previews grouped into "Start here", "The metrics" and more, with a "Read all in order" button](docs/gallery.png)
 
 *The index of the included example, 20 cards on LLM speed and reliability. Each tile is a live
@@ -126,7 +128,7 @@ missing. It builds a `_facts.md` from the existing cards first, so new cards mat
 
 ## See it first
 
-The repo includes the real set this skill was built from, 20 cards on LLM speed and reliability:
+The repo includes the real set this skill was built from, 20 cards on LLM speed and reliability. Browse it live at **[seyonv.github.io/concept-curriculum/examples/llm-latency](https://seyonv.github.io/concept-curriculum/examples/llm-latency/)**, or locally:
 
 ```bash
 open examples/llm-latency/index.html
